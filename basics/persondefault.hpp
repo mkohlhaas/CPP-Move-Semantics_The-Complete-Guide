@@ -9,29 +9,31 @@
 //  http://creativecommons.org/licenses/by/4.0/
 //********************************************************
 
-
-#include <string>
 #include <iostream>
+#include <string>
 
-class Person {
+class Person
+{
   private:
     std::string name;
+
   public:
-    Person(const char* n) 
-     : name{n} {
+    Person(const char *n) : name{n}
+    {
     }
 
-    std::string getName() const {
-      return name;
+    std::string
+    getName() const
+    {
+        return name;
     }
 
     // print out when we copy:
-    Person(const Person& p)
-     : name{p.name} {
+    Person(const Person &p) : name{p.name}
+    {
         std::cout << "COPY " << name << '\n';
     }
     // force default generated move constructor:
-    Person(Person&& p) = default;
+    Person(Person &&p) = default;
     //...
 };
-

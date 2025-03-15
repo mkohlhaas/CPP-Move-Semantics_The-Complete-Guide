@@ -9,13 +9,12 @@
 //  http://creativecommons.org/licenses/by/4.0/
 //********************************************************
 
-
-#include <utility>  // for forward<>()
+#include <utility> // for forward<>()
 
 template <typename Func, typename... Args>
-decltype(auto) call (Func f, Args&&... args)
+decltype(auto)
+call(Func f, Args &&...args)
 {
-  //...
-  return f(std::forward<Args>(args)...);
+    //...
+    return f(std::forward<Args>(args)...);
 }
-

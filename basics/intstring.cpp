@@ -9,22 +9,21 @@
 //  http://creativecommons.org/licenses/by/4.0/
 //********************************************************
 
-
 #include "intstring.hpp"
 #include <iostream>
 
-int main()
+int
+main()
 {
-  IntString is1{42};
-  IntString is2;
-  std::cout << "is1 and is2 before move:\n";
-  is1.dump();
-  is2.dump();
+    IntString is1{42};
+    IntString is2;
+    std::cout << "is1 and is2 before move:\n";
+    is1.dump();
+    is2.dump();
 
-  is2 = std::move(is1);
+    is2 = std::move(is1);
 
-  std::cout << "is1 and is2 after move:\n";
-  is1.dump();
-  is2.dump();
+    std::cout << "is1 and is2 after move:\n";
+    is1.dump();
+    is2.dump();
 }
-

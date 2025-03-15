@@ -9,31 +9,34 @@
 //  http://creativecommons.org/licenses/by/4.0/
 //********************************************************
 
-
 #ifndef POLYGON_HPP
 #define POLYGON_HPP
 
 #include "geoobj.hpp"
-#include <vector>
 #include <iostream>
+#include <vector>
 
-class Polygon : public GeoObj {
- private:
-  std::vector<Coord> points;
- public:
-  // constructor for name and list of Coords
-  Polygon (std::string n, std::initializer_list<Coord> pl = {})
-   : GeoObj{std::move(n)}, points{std::move(pl)} {
-  }
+class Polygon : public GeoObj
+{
+  private:
+    std::vector<Coord> points;
 
-  virtual void draw() const override {
-    std::cout << "polygon '" << name << "' over";
-    for (auto& p : points) {
-      std::cout << " " << p;
+  public:
+    // constructor for name and list of Coords
+    Polygon(std::string n, std::initializer_list<Coord> pl = {}) : GeoObj{std::move(n)}, points{std::move(pl)}
+    {
     }
-    std::cout << "\n";
-  }
+
+    virtual void
+    draw() const override
+    {
+        std::cout << "polygon '" << name << "' over";
+        for (auto &p : points)
+        {
+            std::cout << " " << p;
+        }
+        std::cout << "\n";
+    }
 };
 
 #endif
-
