@@ -1,6 +1,4 @@
-#include "initclassic.hpp"
 #include "initmeasure.hpp"
-#include <cstdlib> // for std::atoi()
 #include <iostream>
 
 int
@@ -12,8 +10,8 @@ main(int argc, const char **argv)
         num = std::atoi(argv[1]);
     }
 
-    // a few iterations to avoid measuring initial behavior:
-    measure(5);
+    // a few iterations to make the CPU hot:
+    measure(num / 10);
 
     // measure (in integral nano- and floating-point milliseconds):
     std::chrono::nanoseconds                  nsDur{measure(num)};

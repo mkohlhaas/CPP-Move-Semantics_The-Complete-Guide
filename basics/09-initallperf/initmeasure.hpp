@@ -1,7 +1,10 @@
+#pragma once
+
+#include "initall.hpp"
 #include <chrono>
 
 // measure num initializations of whatever is currently defined as Person:
-std::chrono::nanoseconds
+inline std::chrono::nanoseconds
 measure(int num)
 {
     std::chrono::nanoseconds totalDur{0};

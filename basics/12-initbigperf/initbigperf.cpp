@@ -1,6 +1,5 @@
 #include <array>
 #include <chrono>
-#include <cstdlib> // for std::atoi()
 #include <iostream>
 #include <map>
 #include <string>
@@ -38,18 +37,23 @@ namespace bigall
         Person(const std::string &n, const std::array<double, 10000> &v) : name{n}, values{v}
         {
         }
+
         Person(const std::string &n, std::array<double, 10000> &&v) : name{n}, values{std::move(v)}
         {
         }
+
         Person(std::string &&n, std::array<double, 10000> &v) : name{std::move(n)}, values{v}
         {
         }
+
         Person(std::string &&n, std::array<double, 10000> &&v) : name{std::move(n)}, values{std::move(v)}
         {
         }
+
         Person(const char *n, const std::array<double, 10000> &v) : name{n}, values{v}
         {
         }
+
         Person(const char *n, std::array<double, 10000> &&v) : name{n}, values{std::move(v)}
         {
         }
@@ -120,10 +124,6 @@ measureSSO(int num)
     }
     return totalDur;
 }
-
-//********************************************************
-// main():
-//********************************************************
 
 int
 main(int argc, const char **argv)
