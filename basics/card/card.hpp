@@ -7,7 +7,8 @@ void assertValidCard(const std::string &val);
 class Card
 {
   private:
-    std::string _value;          // rank + "-of-" + suit
+    std::string _value; // rank + "-of-" + suit
+
   public:
     Card(const std::string &v) : _value{v}
     {

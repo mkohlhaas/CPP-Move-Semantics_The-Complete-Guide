@@ -10,12 +10,14 @@ createCustomer()
     static std::uniform_int_distribution<int> distr{0, 999};
 
     // create customers with unique name and 10 random values:
-    static int no{0};
-    Customer   c{"my test customer " + std::to_string(++no)};
+    static int no{};
+
+    Customer c{"my test customer " + std::to_string(++no)};
     for (int i = 0; i < 10; ++i)
     {
         c.addValue(distr(rndEngine));
     }
+
     return c; // uses move semantics if not optimized away
 }
 
@@ -23,6 +25,7 @@ int
 main()
 {
     std::vector<Customer> customers;
+
     for (int num = 0; num < 8; ++num)
     {
         customers.push_back(createCustomer());

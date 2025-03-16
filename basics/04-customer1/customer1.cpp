@@ -1,12 +1,10 @@
 #include "customer.hpp"
 #include <iostream>
-#include <random>
-#include <utility> // for std::move()
+#include <utility>
 
 int
 main()
 {
-    // create a customer with some initial values:
     Customer c{"Wolfgang Amadeus Mozart"};
     for (int val : {0, 8, 15})
     {
