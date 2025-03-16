@@ -18,6 +18,8 @@ class Customer
         assert(!name.empty());
     }
 
+    // ~Customer() = default; // automatic move semantics is disabled
+
     std::string
     getName() const
     {
@@ -43,10 +45,10 @@ class Customer
     }
 
     // copy constructor (copy all members):
-    Customer(const Customer &cust) : name{cust.name}, values{cust.values}
-    {
-        std::cout << "COPY " << cust.name << '\n';
-    }
+    // Customer(const Customer &cust) : name{cust.name}, values{cust.values}
+    // {
+    //     std::cout << "COPY " << cust.name << '\n';
+    // }
 
     // move constructor (move all members):
     // NOTE:noexcept declaration missing!!!
@@ -57,14 +59,14 @@ class Customer
     }
 
     // copy assignment (assign all members):
-    Customer &
-    operator=(const Customer &cust)
-    {
-        std::cout << "COPYASSIGN " << cust.name << '\n';
-        name   = cust.name;
-        values = cust.values;
-        return *this;
-    }
+    // Customer &
+    // operator=(const Customer &cust)
+    // {
+    //     std::cout << "COPYASSIGN " << cust.name << '\n';
+    //     name   = cust.name;
+    //     values = cust.values;
+    //     return *this;
+    // }
 
     // move assignment (move all members):
     // NOTE:noexcept declaration missing!!!

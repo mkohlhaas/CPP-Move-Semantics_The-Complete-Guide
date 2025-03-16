@@ -7,6 +7,10 @@ class Person
     std::string name;
 
   public:
+    // Person()
+    // {
+    // }
+
     Person(const char *name) : name{name}
     {
     }

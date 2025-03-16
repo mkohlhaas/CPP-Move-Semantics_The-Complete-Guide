@@ -11,4 +11,7 @@ main()
 
     std::cout << "capacity: " << coll.capacity() << '\n';
     coll.push_back("Pjotr Iljitsch Tschaikowski");
+
+    // auto p = Person();
+    // auto p = Person{"Ludwig van Beethoven"};
 }
