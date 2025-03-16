@@ -7,7 +7,7 @@ class Person
     std::string name;
 
   public:
-    Person(const char *n) : name{n}
+    Person(const char *name) : name{name}
     {
     }
 
@@ -22,9 +22,11 @@ class Person
     {
         std::cout << "COPY " << name << '\n';
     }
+
     Person(Person &&p) : name{std::move(p.name)}
     {
         std::cout << "MOVE " << name << '\n';
     }
+
     //...
 };

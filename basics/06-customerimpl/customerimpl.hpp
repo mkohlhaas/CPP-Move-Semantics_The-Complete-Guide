@@ -9,31 +9,32 @@
 class Customer
 {
   private:
-    std::string      _name;   // name of the customer
-    std::vector<int> _values; // some values of the customer
+    std::string      name;   // name of customer
+    std::vector<int> values; // some values of the customer
+
   public:
-    Customer(const std::string &n) : _name{n}
+    Customer(const std::string &n) : name{n}
     {
-        assert(!_name.empty());
+        assert(!name.empty());
     }
 
     std::string
     getName() const
     {
-        return _name;
+        return name;
     }
 
     void
     addValue(int val)
     {
-        _values.push_back(val);
+        values.push_back(val);
     }
 
     friend std::ostream &
     operator<<(std::ostream &strm, const Customer &cust)
     {
-        strm << '[' << cust._name << ": ";
-        for (int val : cust._values)
+        strm << '[' << cust.name << ": ";
+        for (int val : cust.values)
         {
             strm << val << ' ';
         }
@@ -42,26 +43,26 @@ class Customer
     }
 
     // copy constructor (copy all members):
-    Customer(const Customer &cust) : _name{cust._name}, _values{cust._values}
+    Customer(const Customer &cust) : name{cust.name}, values{cust.values}
     {
-        std::cout << "COPY " << cust._name << '\n';
+        std::cout << "COPY " << cust.name << '\n';
     }
 
     // move constructor (move all members):
     // NOTE:noexcept declaration missing!!!
     // Move semantics is not passed through!
-    Customer(Customer &&cust) : _name{std::move(cust._name)}, _values{std::move(cust._values)}
+    Customer(Customer &&cust) : name{std::move(cust.name)}, values{std::move(cust.values)}
     {
-        std::cout << "MOVE " << _name << '\n';
+        std::cout << "MOVE " << name << '\n';
     }
 
     // copy assignment (assign all members):
     Customer &
     operator=(const Customer &cust)
     {
-        std::cout << "COPYASSIGN " << cust._name << '\n';
-        _name   = cust._name;
-        _values = cust._values;
+        std::cout << "COPYASSIGN " << cust.name << '\n';
+        name   = cust.name;
+        values = cust.values;
         return *this;
     }
 
@@ -70,9 +71,9 @@ class Customer
     Customer &
     operator=(Customer &&cust)
     {
-        std::cout << "MOVEASSIGN " << cust._name << '\n';
-        _name   = std::move(cust._name);   // move semantics is not passed through
-        _values = std::move(cust._values); // move semantics is not passed through
+        std::cout << "MOVEASSIGN " << cust.name << '\n';
+        name   = std::move(cust.name);   // move semantics is not passed through
+        values = std::move(cust.values); // move semantics is not passed through
         return *this;
     }
 };
