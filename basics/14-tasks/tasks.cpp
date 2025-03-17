@@ -1,14 +1,16 @@
 #include "tasks.hpp"
 #include <chrono>
-#include <iostream>
+#include <print>
 
 int
 main()
 {
     Tasks ts;
+
     ts.start([] {
         std::this_thread::sleep_for(std::chrono::seconds{2});
-        std::cout << "\nt1 done" << std::endl;
+        std::println("t1 done");
     });
-    ts.start([] { std::cout << "\nt2 done" << std::endl; });
+
+    ts.start([] { std::println("t2 done"); });
 }

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cassert>
 #include <iostream>
 #include <string>
@@ -14,7 +16,6 @@ class Card
     {
         assertValidCard(_value); // ensure the value is always valid
     }
-    //...
 
     std::string
     getValue() const

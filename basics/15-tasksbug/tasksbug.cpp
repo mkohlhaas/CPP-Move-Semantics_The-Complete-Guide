@@ -1,7 +1,7 @@
 #include "tasksbug.hpp"
 #include <chrono>
 #include <exception>
-#include <iostream>
+#include <print>
 
 int
 main()
@@ -11,15 +11,15 @@ main()
         Tasks ts;
         ts.start([] {
             std::this_thread::sleep_for(std::chrono::seconds{2});
-            std::cout << "\nt1 done" << std::endl;
+            std::println("t1 done");
         });
-        ts.start([] { std::cout << "\nt2 done" << std::endl; });
+        ts.start([] { std::println("t2 done"); });
 
-        // OOPS: move tasks:
+        // OOPS: move tasks
         Tasks other{std::move(ts)};
     }
     catch (const std::exception &e)
     {
-        std::cerr << "EXCEPTION: " << e.what() << std::endl;
+        std::println("EXCEPTION: {}", e.what());
     }
 }

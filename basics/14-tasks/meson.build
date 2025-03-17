@@ -1,8 +1,8 @@
 project(
-  'intstring',
+  '14-tasks',
   'cpp',
   version: '0.1',
   default_options: ['warning_level=3', 'cpp_std=c++23'],
 )
 
-executable('intstring', 'intstring.cpp', install: true)
+executable('14-tasks', 'tasks.cpp', install: true)
