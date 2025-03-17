@@ -5,12 +5,13 @@
 class Person
 {
   private:
-    std::string first; // first name
-    std::string last;  // last name
+    std::string first_name;
+    std::string last_name;
 
   public:
-    Person(const std::string &f, const std::string &l) : first{f}, last{l}
+    Person(const std::string &first_name, const std::string &last_name) : first_name{first_name}, last_name{last_name}
     {
     }
+
     //...
 };

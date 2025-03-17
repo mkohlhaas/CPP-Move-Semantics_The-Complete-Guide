@@ -15,7 +15,7 @@ measure(int num)
 
         // measure how long it takes to create 3 Persons in different ways:
         auto   t0 = std::chrono::steady_clock::now();
-        Person p1{"a firstname too long for SSO", "a lastname too long for SSO"};
+        Person p1{"a firstname a bit too long for SSO", "a lastname a bit too long for SSO"};
         Person p2{fname, lname};
         Person p3{std::move(fname), std::move(lname)};
         auto   t1 = std::chrono::steady_clock::now();

@@ -4,20 +4,19 @@
 int
 main(int argc, const char **argv)
 {
-    int num = 1000; // num iterations to measure
+    int num_iterations{1000};
+
     if (argc > 1)
     {
-        num = std::atoi(argv[1]);
+        num_iterations = std::atoi(argv[1]);
     }
 
-    // a few iterations to avoid measuring initial behavior:
-    measure(5);
+    measure(5); // a few iterations to avoid measuring initial behavior
 
-    // measure (in integral nano- and floating-point milliseconds):
-    std::chrono::nanoseconds                  nsDur{measure(num)};
-    std::chrono::duration<double, std::milli> msDur{nsDur};
+    using namespace std::chrono;
+    nanoseconds                  ns_dur{measure(num_iterations)};
+    duration<double, std::milli> ms_dur{ns_dur};
 
-    // print result:
-    std::cout << num << " iterations take:  " << msDur.count() << "ms\n";
-    std::cout << "3 inits take on average:  " << nsDur.count() / num << "ns\n";
+    std::cout << num_iterations << " iterations take:  " << ms_dur.count() << "ms\n";
+    std::cout << "3 inits take on average:  " << ns_dur.count() / num_iterations << "ns\n";
 }

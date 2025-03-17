@@ -1,6 +1,6 @@
-#ifndef POLYGON_HPP
-#define POLYGON_HPP
+#pragma once
 
+#include "coord.hpp"
 #include "geoobj.hpp"
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@ class Polygon : public GeoObj
     std::vector<Coord> points;
 
   public:
-    // constructor for name and list of Coords
+    // take by value and move
     Polygon(std::string n, std::initializer_list<Coord> pl = {}) : GeoObj{std::move(n)}, points{std::move(pl)}
     {
     }
@@ -27,5 +27,3 @@ class Polygon : public GeoObj
         std::cout << "\n";
     }
 };
-
-#endif
