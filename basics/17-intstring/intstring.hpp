@@ -22,7 +22,7 @@ class IntString
     }
 
     void
-    dump() const
+    print() const
     {
         std::println(" [{}/\"{}\"]", val, sval);
     }

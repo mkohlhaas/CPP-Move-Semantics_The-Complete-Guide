@@ -9,23 +9,23 @@ void assertValidCard(const std::string &val);
 class Card
 {
   private:
-    std::string _value; // rank + "-of-" + suit
+    std::string value; // rank + "-of-" + suit
 
   public:
-    Card(const std::string &v) : _value{v}
+    Card(const std::string &v) : value{v}
     {
-        assertValidCard(_value); // ensure the value is always valid
+        assertValidCard(value); // ensure the value is always valid
     }
 
     std::string
     getValue() const
     {
-        return _value;
+        return value;
     }
 
     friend std::ostream &
     operator<<(std::ostream &strm, const Card &c)
     {
-        return strm << c._value;
+        return strm << c.value;
     }
 };

@@ -38,13 +38,13 @@ main()
     }
 
     std::println();
-    print(deck[0]);             // passing a valid object; seven clubs
+    print(deck[0]);                  // passing a valid object; seven clubs
     std::println();
 
-    Card c{std::move(deck[0])}; // deck[0] has invalid state
-    // print(deck[0]);          // passing an object with broken invariant -> core dump
+    Card c{std::move(deck[0])};      // deck[0] has invalid state
+    print(deck[0]);                  // passing an object with broken invariant -> core dump
 
-    deck[0] = Card{"ace of-hearts"}; // deck[0] is valid again
+    deck[0] = Card{"ace-of-hearts"}; // deck[0] is valid again
     print(deck[0]);                  // passing a valid object; ace hearts
 }
 

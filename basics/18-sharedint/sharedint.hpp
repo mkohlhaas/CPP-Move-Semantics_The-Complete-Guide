@@ -1,3 +1,5 @@
+#pragma once
+
 #include <memory>
 #include <string>
 
@@ -5,7 +7,8 @@ class SharedInt
 {
   private:
     std::shared_ptr<int> sp;
-    // special ``value'' for moved-from objects:
+
+    // used by moved-from objects
     inline static std::shared_ptr<int> movedFromValue{std::make_shared<int>(0)};
 
   public:
@@ -16,26 +19,27 @@ class SharedInt
     std::string
     asString() const
     {
-        return std::to_string(*sp); // OOPS: unconditional deref
+        return std::to_string(*sp); // OOPS: unconditional deref -> crash
     }
 
-    // fix moving special member functions:
-    SharedInt(SharedInt &&si) : sp{std::move(si.sp)}
-    {
-        si.sp = movedFromValue;
-    }
-    SharedInt &
-    operator=(SharedInt &&si) noexcept
-    {
-        if (this != &si)
-        {
-            sp    = std::move(si.sp);
-            si.sp = movedFromValue;
-        }
-        return *this;
-    }
+    // Uncomment following lines to prevent crash during runtime!
 
-    // enable copying (deleted with user-declared move operations):
-    SharedInt(const SharedInt &)            = default;
-    SharedInt &operator=(const SharedInt &) = default;
+    // SharedInt(SharedInt &&si) : sp{std::move(si.sp)}
+    // {
+    //     si.sp = movedFromValue;
+    // }
+    //
+    // SharedInt &
+    // operator=(SharedInt &&si) noexcept
+    // {
+    //     if (this != &si)
+    //     {
+    //         sp    = std::move(si.sp);
+    //         si.sp = movedFromValue;
+    //     }
+    //     return *this;
+    // }
+    //
+    // SharedInt(const SharedInt &)            = default;
+    // SharedInt &operator=(const SharedInt &) = default;
 };
