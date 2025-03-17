@@ -1,7 +1,10 @@
 #include <chrono>
-#include <iostream>
+#include <print>
 #include <string>
 #include <vector>
+
+// #define NOEXCEPT noexcept
+#define NOEXCEPT
 
 // string wrapper with move constructor:
 struct Str
@@ -10,13 +13,14 @@ struct Str
 
     // ensure each string has 100 characters:
     Str() : val(100, 'a')
-    { // don't use braces here
+    {
+        // don't use braces here
     }
 
-    // enable copying:
+    // enable copy
     Str(const Str &) = default;
 
-    // enable moving (with and without noexcept):
+    // enable move (with and without noexcept):
     Str(Str &&s) NOEXCEPT : val{std::move(s.val)}
     {
     }
@@ -35,5 +39,5 @@ main()
     auto t1 = std::chrono::steady_clock::now();
 
     std::chrono::duration<double, std::milli> d{t1 - t0};
-    std::cout << d.count() << "ms\n";
+    std::println("{}ms", d.count());
 }

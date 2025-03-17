@@ -1,4 +1,6 @@
-#include <iostream>
+#pragma once
+
+#include <print>
 #include <string>
 
 class Person
@@ -17,15 +19,14 @@ class Person
         return name;
     }
 
-    // print out when we copy or move:
+    // print out when we copy:
     Person(const Person &p) : name{p.name}
     {
-        std::cout << "COPY " << name << '\n';
+        std::println("COPY {}", name);
     }
-    Person(Person &&p) noexcept // guarantee not to throw
-        : name{std::move(p.name)}
-    {
-        std::cout << "MOVE " << name << '\n';
-    }
+
+    // force default generated move constructor:
+    Person(Person &&p) = default;
+
     //...
 };

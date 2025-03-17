@@ -1,4 +1,6 @@
-#include <iostream>
+#pragma once
+
+#include <print>
 #include <string>
 
 class Person
@@ -17,15 +19,17 @@ class Person
         return name;
     }
 
-    // print out when we copy or move:
     Person(const Person &p) : name{p.name}
     {
-        std::cout << "COPY " << name << '\n';
+        std::println("COPY ", name);
     }
-    Person(Person &&p) noexcept(std::is_nothrow_move_constructible<std::string>::value && noexcept(std::cout << name))
+
+    Person(Person &&p) noexcept(std::is_nothrow_move_constructible<std::string>::value &&
+                                noexcept(std::println("{}", name)))
         : name{std::move(p.name)}
     {
-        std::cout << "MOVE " << name << '\n';
+        std::println("MOVE ", name);
     }
+
     //...
 };

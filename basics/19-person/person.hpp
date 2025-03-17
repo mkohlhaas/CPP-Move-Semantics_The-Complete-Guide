@@ -1,4 +1,6 @@
-#include <iostream>
+#pragma once
+
+#include <print>
 #include <string>
 
 class Person
@@ -24,12 +26,12 @@ class Person
     // print out when we copy or move:
     Person(const Person &p) : name{p.name}
     {
-        std::cout << "COPY " << name << '\n';
+        std::println("COPY {}", name);
     }
 
     Person(Person &&p) : name{std::move(p.name)}
     {
-        std::cout << "MOVE " << name << '\n';
+        std::println("MOVE {}", name);
     }
 
     //...
