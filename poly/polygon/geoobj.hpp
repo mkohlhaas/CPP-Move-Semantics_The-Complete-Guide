@@ -29,8 +29,8 @@ class GeoObj
     GeoObj(GeoObj &&)      = default;
 
     // disable assignment operator (due to the problem of slicing):
-    GeoObj &operator=(GeoObj &&)      = delete;
-    GeoObj &operator=(const GeoObj &) = delete;
+    GeoObj &operator=(const GeoObj &) & = delete;
+    GeoObj &operator=(GeoObj &&) &      = delete;
 
     //...
 };
