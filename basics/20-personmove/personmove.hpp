@@ -24,6 +24,7 @@ class Person
         std::println("COPY ", name);
     }
 
+    // noexcept allows move semantics on reallocations
     Person(Person &&p) noexcept : name{std::move(p.name)}
     {
         std::println("MOVE ", name);

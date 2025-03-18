@@ -24,11 +24,10 @@ class Person
         std::println("COPY ", name);
     }
 
-    Person(Person &&p) noexcept(std::is_nothrow_move_constructible<std::string>::value &&
-                                noexcept(std::println("{}", name)))
+    Person(Person &&p) noexcept(std::is_nothrow_move_constructible_v<std::string> && noexcept(std::println("{}", name)))
         : name{std::move(p.name)}
     {
-        std::println("MOVE ", name);
+        std::println("MOVE ", name); // could actually throw an exception -> will copy on reallocations
     }
 
     //...

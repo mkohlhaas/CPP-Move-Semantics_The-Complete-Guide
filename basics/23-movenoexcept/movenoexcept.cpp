@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-// #define NOEXCEPT noexcept
-#define NOEXCEPT
+#define NOEXCEPT noexcept
+// #define NOEXCEPT
 
 // string wrapper with move constructor:
 struct Str
@@ -12,9 +12,8 @@ struct Str
     std::string val;
 
     // ensure each string has 100 characters:
-    Str() : val(100, 'a')
+    Str() : val(100, 'a') // don't use braces here
     {
-        // don't use braces here
     }
 
     // enable copy

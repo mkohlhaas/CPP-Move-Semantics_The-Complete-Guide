@@ -23,7 +23,6 @@ class Person
         return name;
     }
 
-    // print out when we copy or move:
     Person(const Person &p) : name{p.name}
     {
         std::println("COPY {}", name);

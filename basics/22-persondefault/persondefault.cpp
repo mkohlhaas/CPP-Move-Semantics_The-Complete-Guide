@@ -12,8 +12,8 @@ main()
     std::println("capacity: {}", coll.capacity());      // capacity: 3
     coll.push_back("Pjotr Iljitsch Tschaikowski");      // move operations are taking place
 
-    std::println("{}", coll[0].getName());              // Wolfgang Amadeus Mozart
-    std::println("{}", coll[1].getName());              // Johann Sebastian Bach
-    std::println("{}", coll[2].getName());              // Ludwig van Beethoven
-    std::println("{}", coll[3].getName());              // Pjotr Iljitsch Tschaikowski
+    std::println("{}", coll[0].getName());              // Wolfgang Amadeus Mozart      (using default move constructor)
+    std::println("{}", coll[1].getName());              // Johann Sebastian Bach        (using default move constructor)
+    std::println("{}", coll[2].getName());              // Ludwig van Beethoven         (using default move constructor)
+    std::println("{}", coll[3].getName());              // Pjotr Iljitsch Tschaikowski  (using default move constructor)
 }

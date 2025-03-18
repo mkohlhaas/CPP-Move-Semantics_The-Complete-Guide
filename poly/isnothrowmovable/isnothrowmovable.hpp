@@ -1,7 +1,6 @@
 // type trait to check whether a base class guarantees not to throw
 // in the move constructor (even if the constructor is not callable)
-#ifndef IS_NOTHROW_MOVABLE_HPP
-#define IS_NOTHROW_MOVABLE_HPP
+#pragma once
 
 #include <type_traits>
 
@@ -14,10 +13,9 @@ struct Wrapper : Base
     print() const
     {
     }
+
     //...
 };
 
 template <typename T>
 static constexpr inline bool is_nothrow_movable_v = std::is_nothrow_move_constructible_v<Wrapper<T>>;
-
-#endif // IS_NOTHROW_MOVABLE_HPP
