@@ -1,27 +1,27 @@
-cd perfectpassing
-meson compile -C build
+cd 1-universalconstructor
+meson setup build
 cd ..
-cd universalspec
-meson compile -C build
+cd 2-universalconst
+meson setup build
 cd ..
-cd universalconstructor
-meson compile -C build
+cd 3-universaltype
+meson setup build
 cd ..
-cd perfectautorefref
-meson compile -C build
+cd 4-universalmem
+meson setup build
 cd ..
-cd universalclass
-meson compile -C build
+cd 5-universalclass
+meson setup build
 cd ..
-cd universalconst
-meson compile -C build
+cd 6-universalspec
+meson setup build
 cd ..
-cd call
-meson compile -C build
+cd 7-perfectpassing
+meson setup build
 cd ..
-cd universalmem
-meson compile -C build
+cd 8-perfectautorefref
+meson setup build
 cd ..
-cd universaltype
-meson compile -C build
+cd 9-call
+meson setup build
 cd ..
