@@ -33,6 +33,8 @@ main()
     // T&&| &   | becomes T&
     // T&&| &&  | becomes T&&
 
+    // auto&& is always a reference.
+
     std::string s;
 
     // argument (in {}) is an lvalue (value category): && ∀ & = &
